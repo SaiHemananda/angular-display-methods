@@ -1,0 +1,13 @@
+<div style="display:flex; justify-content:space-between"
+    class="bg-dark text-light p-3 rounded mb-2"
+    >
+    <div>
+      <div>{{item.title}}</div>
+      <div> {{item.price | currency:'USD':'symbol':'1.2-2'}}
+              {{ item.dateAdded | date}}</div>
+    </div>
+    <div>
+      <i class="material-icons" *ngIf="!isItFirst" (click)="onGoUp()">expand_less</i>
+      <i class="material-icons" *ngIf="!isItLast" (click)="onGoDown()">expand_more</i>
+    </div>
+  </div>
