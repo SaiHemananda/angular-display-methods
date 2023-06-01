@@ -9,13 +9,19 @@ export class WatchListItemComponent  {
   @Input() item;
   @Input() isItFirst;
   @Input() isItLast;
-  
-  @Output() currentIndex = new EventEmitter();
+ 
+  @Output() up = new EventEmitter();
+  @Output() down = new EventEmitter();
+
   ngOnInit() {
   }
 
   onGoDown(){
-  
+    this.down.emit();
   }
+  onGoUp(){
+    this.up.emit();
+  }
+  
 
 }

@@ -1,12 +1,18 @@
 <h4>Flopbuster Watch List</h4>
 
-<div *ngFor="let movie of watchList; first as f; last as l">
+<div>
+  <my-watch-list-item
+    *ngFor="let movie of watchList | slice:0:maxItems; 
+            index as i; first as f; last as l;"
+    [item]="movie"
+    [isItFirst]="f"
+    [isItLast]="l"
+    (up)="moveItemUp(i)"
+    (down)="moveItemDown(i)"
+  ></my-watch-list-item>
 
-  <my-watch-list-item 
-      [item]="movie"
-      [isItFirst]="f"
-      [isItLast]="l"></my-watch-list-item>
-
+  <button 
+   class="bg bg-primary"
+   *ngIf="maxItems < watchList.length "
+   (click)="onClick()">Show All</button>
 </div>
-
-
